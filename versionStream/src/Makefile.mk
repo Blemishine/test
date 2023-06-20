@@ -229,11 +229,6 @@ verify-install:
 # as some pods stick around even though they are failed causing errors
 	-jx verify install --pod-wait-time=2m
 
-.PHONY: verify
-verify: dev-ns verify-ingress $(GITOPS_WEBHOOK_UPDATE)
-	jx health status -A
-
-
 .PHONY: gitops-webhook-update
 gitops-webhook-update:
 	jx gitops webhook update --warn-on-fail --fast
